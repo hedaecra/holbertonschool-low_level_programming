@@ -1,10 +1,10 @@
 #include "main.h"
 
-/*
-** main - putchar()
+/**
+** main - putchar create file
 **
-** Return: 0
-*/
+** Return: 0 success
+**/
 
 int main(void)
 {
