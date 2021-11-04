@@ -16,7 +16,7 @@ int (*func)(int, int);
 if (argc != 4)
 {
 printf("Error\n");
-exit(98); 
+exit(98);
 }
 
 arg1 = atoi(argv[1]);
@@ -27,7 +27,7 @@ func = get_op_func(argv[2]);
 if (!func)
 {
 printf("Error\n");
-exit(99); 
+exit(99);
 }
 
 o = *argv[2];
@@ -35,7 +35,7 @@ o = *argv[2];
 if ((o == '/' || o == '%') && arg2 == 0)
 {
 printf("Error\n");
-exit(100); 
+exit(100);
 }
 
 result = func(arg1, arg2);
