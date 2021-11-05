@@ -1,13 +1,13 @@
-	section .data
+	section     .text
+	global      main
 
-	message db "Hello, world!", 10
+main:
+	mov     edx,len
+	mov     ecx,msg
+	mov     ebx,1
+	mov     eax,4
+	int     0x80
 
-	section .text
-
-	global _start
-_start:
-	mov rax, 1
-	mov rdi, 1
-	mov rsi, message
-	mov rdx, 14
-	syscall
+	section     .data
+	msg     db  'Hello, World',0xa
+	len     equ $ - msg
