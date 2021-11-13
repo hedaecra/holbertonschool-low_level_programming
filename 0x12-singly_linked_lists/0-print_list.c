@@ -13,7 +13,11 @@ unsigned int n;
 
 for (n = 0; h; n++)
 {
+if (!h->str)
+printf("[0] (nil)\n");
+else
 printf("[%u] %s\n", h->len, h->str);
+
 h = h->next;
 }
 return (n);
