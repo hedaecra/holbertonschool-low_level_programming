@@ -25,9 +25,6 @@ if (!new)
 return (NULL);
 
 new->str = strdup(str);
-if (!new->str)
-free(new);
-return (NULL);
 
 new->len = len;
 new->next = (*head);
