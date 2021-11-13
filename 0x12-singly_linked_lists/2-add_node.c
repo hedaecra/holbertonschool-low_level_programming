@@ -3,22 +3,6 @@
 #include "lists.h"
 
 /**
- * _strlen - finds the length of a string
- * @str: string to find the length of
- *
- * Return: length of string
- */
-unsigned int _len(char *str)
-{
-unsigned int i;
-
-for (i = 0; str[i]; i++)
-;
-return (i);
-}
-
-
-/**
  * add_node - adds a new node at the beginning of a linked list
  * @head: double pointer to the list_t list
  * @str: new string to add in the node
@@ -28,9 +12,13 @@ return (i);
 list_t *add_node(list_t **head, const char *str)
 {
 list_t *new;
+unsigned int len = 0;
 
 if (!str)
 return (NULL);
+
+while (str[len])
+len++;
 
 new = malloc(sizeof(list_t));
 if (!new)
@@ -41,7 +29,7 @@ if (!new->str)
 free(new);
 return (NULL);
 
-new->len = _len(new->str);
+new->len = len;
 new->next = (*head);
 (*head) = new;
 
