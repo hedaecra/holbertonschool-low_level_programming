@@ -20,8 +20,8 @@ printf("[0] (nil)\n");
 else
 printf("[%u] %s\n", h->len, h->str);
 
-n++;
 h = h->next;
+n++;
 }
 return (n);
 }
