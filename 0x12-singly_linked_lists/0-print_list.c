@@ -11,7 +11,7 @@
  */
 size_t print_list(const list_t *h)
 {
-size_t int s;
+size_t s;
 
 for (s = 0; h; n++)
 {
