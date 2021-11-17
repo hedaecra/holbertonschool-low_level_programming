@@ -16,7 +16,7 @@ if (!head || !*head)
 return (0);
 
 nu = (*head)->n;
-tmp = (*head)->next; 
+tmp = (*head)->next;
 free(*head);
 *head = tmp;
 return (nu);
