@@ -39,7 +39,7 @@ exit(98);
 }
 
 while (new_file > 0)
-{  
+{
 if (write(file_to, buffer, new_file) < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
