@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av)
 {
-int file_from, file_to, new_file;
+int file_from, file_to, new_file, close_from, close_to;
 char buffer[1024];
 if (ac != 3)
 {
@@ -46,13 +46,15 @@ close(file_from);
 exit(99);
 }
 
-if (close(file_from) < 0)
+close_from = close(file_from);
+if (close_from < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 exit(100);
 }
 
-if (close(file_to) < 0)
+close_to = close(file_to);
+if (close_to < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 exit(100);
