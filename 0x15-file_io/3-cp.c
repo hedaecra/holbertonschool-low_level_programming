@@ -38,7 +38,7 @@ dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 exit(98);
 }
 
-while (new_file > 0)
+while ((new_file = read(file_from, buffer, 1024)) > 0)
 {
 if (write(file_to, buffer, new_file) < 0)
 {
