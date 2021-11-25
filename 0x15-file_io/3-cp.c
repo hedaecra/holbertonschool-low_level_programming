@@ -25,27 +25,20 @@ exit(98);
 }
 
 file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-if (file_to < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-exit(99);
-}
-
-new_file = read(file_from, buffer, 1024);
-if (new_file < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-exit(98);
-}
-
 while ((new_file = read(file_from, buffer, 1024)) > 0)
 {
-if (write(file_to, buffer, new_file) < 0)
+if (file_to < 0 || write(file_to, buffer, new_file) != new_file)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 close(file_from);
 exit(99);
 }
+}
+
+if (new_file < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+exit(98);
 }
 
 if (close(file_from) < 0)
